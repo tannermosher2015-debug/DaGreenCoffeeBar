@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<script>document.documentElement.className+=' js';</script>
+<title>Da Green Coffee Bar — Coffee in the shade · Kihei, Maui</title>
+<meta name="description" content="A garden coffee bar hidden behind South Maui Gardens in Kihei. Maui-grown coffee roasted in house, gourmet sourdough toast, smoothies, and CBD wellness — served in the shade among orchids, a koi pond, and live local music." />
+<!-- PRE-LAUNCH: noindex while menu prices are estimates and phone is unconfirmed. Remove both before going live. -->
+<meta name="robots" content="noindex, nofollow" />
+<meta name="theme-color" content="#16301F" />
+
+<!-- Open Graph -->
+<meta property="og:type" content="restaurant" />
+<meta property="og:title" content="Da Green Coffee Bar — Coffee in the shade" />
+<meta property="og:description" content="A garden coffee bar hidden behind South Maui Gardens, Kihei. House-roasted coffee, gourmet toast, and a bench in the shade." />
+<meta property="og:image" content="images/exterior-wide.jpg" />
+<meta property="og:locale" content="en_US" />
+<meta name="twitter:card" content="summary_large_image" />
+
+<!-- Favicon: a single leaf, canopy green -->
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%2316301F'/%3E%3Cpath d='M16 6C9 9 7 16 9 24c8 1 14-3 15-12-4 1-7 3-9 7' fill='none' stroke='%23CB5E3C' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E" />
+
+<!-- Fonts: async, non-render-blocking -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400;1,6..72,500&family=Spline+Sans+Mono:wght@400;500&display=swap" onload="this.onload=null;this.rel='stylesheet'" />
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400;1,6..72,500&family=Spline+Sans+Mono:wght@400;500&display=swap" /></noscript>
+
+<style>
+  /* ============ TOKENS ============ */
+  :root{
+    --bg:#F2F0E6;        /* warm bone paper        */
+    --surface:#E5E8DA;   /* pale sage              */
+    --primary:#1F3D2B;   /* canopy green           */
+    --canopy:#16301F;    /* deep canopy (hero/footer) */
+    --accent:#CB5E3C;    /* clay-coral bloom (graphic + LARGE display only) */
+    --accent-ink:#A1431F;/* coral, text-safe on light */
+    --bloom:#E59A78;     /* light coral, text-safe (AA) on dark greens */
+    --text:#22261E;      /* warm near-black        */
+    --muted:#4E5340;     /* muted body on light (AA) */
+    --cream:#F2F0E6;     /* text on dark           */
+    --cream-dim:#D9D9C7; /* secondary text on dark (AA) */
+    --line:rgba(31,61,43,.16);
+    --line-dark:rgba(242,240,230,.18);
+    --radius:18px;
+    --radius-sm:11px;
+    --maxw:1180px;
+    --pad:clamp(1.25rem,5vw,2.5rem);
+    --display:'Bricolage Grotesque', system-ui, sans-serif;
+    --serif:'Newsreader', Georgia, serif;
+    --mono:'Spline Sans Mono', ui-monospace, monospace;
+    --ease:cubic-bezier(.22,.61,.36,1);
+  }
+
+  /* ============ RESET ============ */
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+  body{
+    font-family:var(--serif);
+    background:var(--bg);
+    color:var(--text);
+    line-height:1.7;
+    font-size:1.125rem;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  img{display:block;max-width:100%;height:auto}
+  a{color:inherit;text-decoration:none}
+  ::selection{background:var(--accent);color:var(--cream)}
+
+  /* ============ TYPE ============ */
+  h1,h2,h3{font-family:var(--display);font-weight:800;line-height:1.02;letter-spacing:-.02em;color:var(--primary)}
+  h2{font-size:clamp(2rem,4.6vw,3.35rem)}
+  h3{font-size:clamp(1.25rem,2vw,1.55rem);font-weight:700;letter-spacing:-.01em}
+  p{max-width:62ch}
+  .serif-em{font-family:var(--serif);font-style:italic;font-weight:500}
+
+  /* label / plant-tag */
+  .label{
+    font-family:var(--mono);font-size:.72rem;font-weight:500;
+    letter-spacing:.18em;text-transform:uppercase;color:var(--accent-ink);
+  }
+  .label--cream{color:var(--bloom)}
+
+  .tag{
+    display:inline-flex;align-items:center;gap:.5em;
+    font-family:var(--mono);font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;
+    color:var(--primary);background:var(--bg);
+    border:1px solid var(--line);border-radius:999px;
+    padding:.42em .9em;position:relative;
+  }
+  .tag::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--accent);flex:none}
+  .tag--sage{background:#fff}
+
+  /* ============ LAYOUT ============ */
+  .wrap{max-width:var(--maxw);margin-inline:auto;padding-inline:var(--pad)}
+  section{padding-block:clamp(3.5rem,9vw,7rem)}
+  .eyebrow-row{display:flex;align-items:center;gap:1rem;margin-bottom:1.4rem}
+  .eyebrow-row .rule{height:1px;background:var(--line);flex:1;max-width:64px}
+
+  /* ============ BUTTONS ============ */
+  .btn{
+    display:inline-flex;align-items:center;gap:.6em;
+    font-family:var(--mono);font-size:.82rem;font-weight:500;letter-spacing:.08em;text-transform:uppercase;
+    padding:.95em 1.6em;border-radius:999px;border:1.5px solid transparent;
+    cursor:pointer;transition:transform .25s var(--ease),background .25s var(--ease),color .25s var(--ease),box-shadow .25s var(--ease);
+    will-change:transform;
+  }
+  .btn--primary{background:var(--primary);color:var(--cream)}
+  .btn--primary:hover{background:var(--canopy);transform:translateY(-2px);box-shadow:0 12px 28px -14px rgba(22,48,31,.9)}
+  .btn--ghost{border-color:var(--line);color:var(--primary);background:transparent}
+  .btn--ghost:hover{border-color:var(--primary);background:rgba(31,61,43,.05);transform:translateY(-2px)}
+  .btn--cream{background:var(--cream);color:var(--canopy)}
+  .btn--cream:hover{background:#fff;transform:translateY(-2px);box-shadow:0 14px 30px -16px rgba(0,0,0,.6)}
+  .btn--outline-cream{border-color:var(--line-dark);color:var(--cream);background:transparent}
+  .btn--outline-cream:hover{border-color:var(--cream);background:rgba(242,240,230,.08);transform:translateY(-2px)}
+  .btn .arrow{transition:transform .25s var(--ease)}
+  .btn:hover .arrow{transform:translate(3px,-3px)}
+
+  /* ============ FOCUS ============ */
+  :focus-visible{outline:3px solid var(--accent);outline-offset:3px;border-radius:4px}
+  .skip{
+    position:fixed;top:-100px;left:1rem;z-index:200;
+    background:var(--canopy);color:var(--cream);padding:.8em 1.2em;border-radius:0 0 10px 10px;
+    font-family:var(--mono);font-size:.8rem;transition:top .2s var(--ease);
+  }
+  .skip:focus{top:0}
+
+  /* ============ HEADER ============ */
+  .site-header{
+    position:fixed;inset:0 0 auto 0;z-index:100;
+    display:flex;align-items:center;justify-content:space-between;
+    gap:1rem;padding:.85rem var(--pad);
+    transition:background .3s var(--ease),box-shadow .3s var(--ease),padding .3s var(--ease);
+  }
+  .site-header.scrolled{background:rgba(22,48,31,.93);backdrop-filter:blur(10px);box-shadow:0 1px 0 var(--line-dark);padding-block:.6rem}
+  .brand{display:flex;flex-direction:column;line-height:1;color:var(--cream)}
+  .brand b{font-family:var(--display);font-weight:800;font-size:1.32rem;letter-spacing:-.02em}
+  .brand span{font-family:var(--mono);font-size:.6rem;letter-spacing:.22em;text-transform:uppercase;color:var(--cream-dim);margin-top:.3em}
+  .brand .leaf{display:inline-block;vertical-align:-2px;margin-right:.35em}
+  nav.primary{display:flex;align-items:center;gap:clamp(1rem,2.4vw,2rem)}
+  nav.primary a:not(.btn){
+    font-family:var(--mono);font-size:.78rem;letter-spacing:.06em;text-transform:uppercase;color:var(--cream);
+    position:relative;padding-block:.3em;
+  }
+  nav.primary a:not(.btn)::after{content:"";position:absolute;left:0;bottom:0;width:0;height:1.5px;background:var(--accent);transition:width .28s var(--ease)}
+  nav.primary a:not(.btn):hover::after{width:100%}
+  .nav-toggle{display:none;background:none;border:0;cursor:pointer;padding:.4rem;flex:none;min-width:44px;min-height:44px}
+  .nav-toggle span{display:block;width:26px;height:2px;background:var(--cream);margin:5px 0;transition:transform .3s var(--ease),opacity .2s}
+
+  /* ============ HERO ============ */
+  .hero{
+    position:relative;background:var(--canopy);color:var(--cream);
+    min-height:100svh;display:flex;align-items:center;
+    padding-top:5.5rem;overflow:hidden;
+  }
+  .hero::before{ /* soft canopy light */
+    content:"";position:absolute;inset:0;
+    background:
+      radial-gradient(120% 90% at 85% -10%,rgba(203,94,60,.16),transparent 55%),
+      radial-gradient(90% 80% at 5% 110%,rgba(120,150,90,.22),transparent 60%);
+    pointer-events:none;
+  }
+  .hero .wrap{position:relative;display:grid;grid-template-columns:1.15fr .85fr;gap:clamp(2rem,5vw,4rem);align-items:center;width:100%}
+  .hero-copy{max-width:34ch}
+  .hero h1{
+    color:var(--cream);font-size:clamp(3rem,9vw,6.4rem);line-height:.93;letter-spacing:-.035em;margin:.4rem 0 0;
+  }
+  .hero h1 .em{display:block;font-family:var(--serif);font-style:italic;font-weight:500;color:var(--accent);letter-spacing:-.01em}
+  .hero .lede{font-size:1.2rem;color:var(--cream-dim);margin:1.6rem 0 2.1rem;max-width:42ch}
+  .hero-cta{display:flex;flex-wrap:wrap;gap:.8rem}
+  .hero-figure{position:relative}
+  .hero-figure img{
+    width:100%;border-radius:230px 230px 26px 26px;object-fit:cover;aspect-ratio:4/5;
+    box-shadow:0 40px 70px -40px rgba(0,0,0,.7);border:1px solid var(--line-dark);
+  }
+  .hero-figure .cap{
+    position:absolute;left:-14px;bottom:24px;background:var(--bg);color:var(--primary);
+    font-family:var(--mono);font-size:.66rem;letter-spacing:.12em;text-transform:uppercase;
+    padding:.6em 1em;border-radius:999px;box-shadow:0 12px 24px -14px rgba(0,0,0,.5);
+  }
+  /* vine that arcs across hero */
+  .hero-vine{position:absolute;left:-4%;top:38%;width:62%;height:auto;opacity:.9;pointer-events:none;z-index:1}
+  .hero-vine path,.hero-vine .leaf-p{stroke:var(--accent)}
+
+  /* scroll cue */
+  .scrollcue{position:absolute;left:50%;bottom:1.4rem;transform:translateX(-50%);z-index:2;
+    font-family:var(--mono);font-size:.6rem;letter-spacing:.24em;text-transform:uppercase;color:var(--cream-dim);
+    display:flex;flex-direction:column;align-items:center;gap:.5rem}
+  .scrollcue i{display:block;width:1px;height:34px;background:linear-gradient(var(--cream-dim),transparent);animation:cue 2.4s var(--ease) infinite}
+  @keyframes cue{0%{transform:scaleY(0);transform-origin:top}40%{transform:scaleY(1);transform-origin:top}60%{transform:scaleY(1);transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+
+  /* ============ VINE DIVIDER ============ */
+  .vine-divide{display:block;width:100%;max-width:760px;margin:0 auto;height:auto;color:var(--accent)}
+  .vine-divide .stem{fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round}
+
+  /* draw-in animation (only hidden when JS is active; visible otherwise) */
+  .js .draw .stem,.js .draw .leaf-p{stroke-dasharray:var(--len,1200);stroke-dashoffset:var(--len,1200);transition:stroke-dashoffset 1.8s var(--ease)}
+  .js .draw.in .stem,.js .draw.in .leaf-p{stroke-dashoffset:0}
+
+  /* ============ GARDEN (story) ============ */
+  .garden{position:relative}
+  .garden .grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2rem,5vw,4.5rem);align-items:center}
+  .garden h2{margin:.2rem 0 1.4rem;max-width:14ch}
+  .garden p+p{margin-top:1.1rem}
+  .garden .tags{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:2rem}
+  .garden-figure{position:relative}
+  .garden-figure img{width:100%;border-radius:var(--radius);object-fit:cover;aspect-ratio:5/6;box-shadow:0 30px 60px -38px rgba(22,48,31,.6)}
+  .garden-figure .badge{
+    position:absolute;right:-12px;top:24px;background:var(--accent-ink);color:var(--cream);
+    font-family:var(--display);font-weight:700;line-height:1;text-align:center;
+    width:104px;height:104px;border-radius:50%;display:grid;place-content:center;
+    box-shadow:0 18px 30px -16px rgba(161,67,31,.8);padding:.4rem;
+  }
+  .garden-figure .badge small{display:block;font-family:var(--mono);font-size:.52rem;letter-spacing:.14em;font-weight:400;margin-top:.2em}
+
+  .pullquote{
+    margin-top:clamp(3rem,7vw,5rem);border-top:1px solid var(--line);padding-top:clamp(2rem,4vw,3rem);
+    display:grid;grid-template-columns:auto 1fr;gap:clamp(1.2rem,3vw,2.4rem);align-items:start;max-width:none;
+  }
+  .pullquote .mark{font-family:var(--display);font-weight:800;font-size:4rem;color:var(--accent);line-height:.7}
+  .pullquote blockquote{font-family:var(--serif);font-style:italic;font-size:clamp(1.3rem,2.6vw,1.9rem);line-height:1.4;color:var(--primary);max-width:24ch}
+  .pullquote cite{display:block;font-style:normal;font-family:var(--mono);font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-top:1rem}
+
+  /* ============ MENU ============ */
+  .menu{background:var(--surface)}
+  .menu .head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:1.5rem;margin-bottom:2.5rem}
+  .menu .head h2{max-width:16ch}
+  .cats{display:flex;flex-wrap:wrap;gap:.6rem}
+  .menu-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(1.5rem,4vw,3.5rem)}
+  .menu-card{background:var(--bg);border:1px solid var(--line);border-radius:var(--radius);padding:clamp(1.5rem,3vw,2.3rem)}
+  .menu-card > .label{display:block;margin-bottom:1.3rem}
+  .m-item{display:grid;grid-template-columns:1fr auto;gap:.4rem 1rem;align-items:baseline;padding:.85rem 0;border-bottom:1px dotted var(--line)}
+  .m-item:last-child{border-bottom:0;padding-bottom:0}
+  .m-item:first-of-type{padding-top:0}
+  .m-item .name{font-family:var(--display);font-weight:700;font-size:1.08rem;color:var(--primary);letter-spacing:-.01em}
+  .m-item .desc{grid-column:1/-1;font-size:.95rem;color:var(--muted);line-height:1.5;max-width:48ch}
+  .m-item .price{font-family:var(--mono);font-size:.82rem;color:var(--accent-ink);white-space:nowrap}
+  .m-item .price.tbd{color:var(--muted)}
+  .menu-note{margin-top:1.4rem;font-family:var(--mono);font-size:.72rem;letter-spacing:.04em;color:var(--muted)}
+  .est-flag{font-family:var(--mono);font-size:.73rem;letter-spacing:.03em;color:var(--accent-ink);
+    background:rgba(161,67,31,.07);border:1px solid rgba(161,67,31,.28);border-radius:999px;
+    padding:.5em 1.1em;display:inline-block;margin-bottom:1.9rem}
+  .roast-strip{
+    margin-top:clamp(2.5rem,5vw,3.5rem);background:var(--primary);border-radius:var(--radius);overflow:hidden;
+    display:grid;grid-template-columns:1.05fr .95fr;align-items:stretch;
+    box-shadow:0 30px 60px -44px rgba(22,48,31,.7);
+  }
+  .roast-copy{padding:clamp(1.8rem,4vw,2.8rem) clamp(1.6rem,4vw,3rem);display:flex;flex-direction:column;justify-content:center;gap:1rem}
+  .roast-strip p{font-family:var(--display);font-weight:700;font-size:clamp(1.3rem,2.6vw,1.9rem);color:var(--cream);max-width:20ch;line-height:1.12}
+  .roast-strip .label{color:var(--bloom)}
+  .roast-img{width:100%;height:100%;object-fit:cover;min-height:210px;border-left:1px solid var(--line-dark)}
+
+  /* ============ EXPERIENCE BAND ============ */
+  .band{position:relative;background:var(--canopy);color:var(--cream);isolation:isolate}
+  .band::after{content:"";position:absolute;inset:0;z-index:-1;
+    background:linear-gradient(90deg,var(--canopy) 30%,rgba(22,48,31,.55) 60%,rgba(22,48,31,.2)),
+    var(--band-img) center/cover no-repeat;}
+  .band .wrap{min-height:60vh;display:flex;flex-direction:column;justify-content:center}
+  .band h2{color:var(--cream);max-width:18ch}
+  .band p{color:var(--cream-dim);margin-top:1.3rem;font-size:1.18rem}
+  .band .tags{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:2rem}
+  .band .tag{background:rgba(242,240,230,.07);border-color:var(--line-dark);color:var(--cream)}
+  .band .tag::before{background:var(--accent)}
+
+  /* ============ SUSPENDED ============ */
+  .suspended .grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(2rem,5vw,4rem);align-items:center}
+  .suspended h2{max-width:16ch}
+  .suspended .lead{font-size:1.22rem;color:var(--text);margin:1.3rem 0}
+  .susp-card{
+    background:var(--bg);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;
+    box-shadow:0 30px 60px -44px rgba(22,48,31,.7);
+  }
+  .susp-card .top{background:var(--primary);color:var(--cream);padding:1.4rem 1.6rem;display:flex;align-items:center;justify-content:space-between;gap:1rem}
+  .susp-card .top b{font-family:var(--display);font-weight:800;font-size:1.15rem}
+  .susp-card .top .label{color:var(--bloom)}
+  .susp-row{display:flex;align-items:center;gap:1rem;padding:1rem 1.6rem;border-bottom:1px dashed var(--line)}
+  .susp-row:last-child{border-bottom:0}
+  .susp-row .chip{font-family:var(--mono);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--cream);background:var(--accent-ink);border-radius:999px;padding:.4em .8em;flex:none}
+  .susp-row span{font-family:var(--serif);font-style:italic;color:var(--muted)}
+
+  /* ============ VISIT ============ */
+  .visit{background:var(--surface)}
+  .visit .grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2rem,5vw,4rem)}
+  .info dl{display:grid;grid-template-columns:auto 1fr;gap:.2rem 1.4rem;margin-top:1.8rem}
+  .info dt{font-family:var(--mono);font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--accent-ink);padding-top:.95rem}
+  .info dd{padding:.85rem 0;border-bottom:1px solid var(--line);font-size:1.05rem;color:var(--text)}
+  .info dd a:hover{color:var(--accent-ink)}
+  .info dd .note{display:block;font-family:var(--mono);font-size:.68rem;letter-spacing:.04em;color:var(--muted);text-transform:none;margin-top:.2rem}
+  .info .btn{margin-top:2rem}
+  .map{border-radius:var(--radius);overflow:hidden;border:1px solid var(--line);min-height:360px;box-shadow:0 30px 60px -44px rgba(22,48,31,.6)}
+  .map iframe{width:100%;height:100%;min-height:360px;border:0;display:block;filter:saturate(.92)}
+
+  /* ============ FOOTER ============ */
+  footer{background:var(--canopy);color:var(--cream-dim);padding-block:clamp(3rem,6vw,4.5rem) 2rem}
+  .foot-grid{display:grid;grid-template-columns:1.6fr 1fr 1fr 1.2fr;gap:clamp(1.6rem,4vw,3rem)}
+  .foot-brand b{font-family:var(--display);font-weight:800;font-size:1.5rem;color:var(--cream);display:block}
+  .foot-brand p{font-size:.98rem;margin-top:.9rem;max-width:30ch}
+  .foot-col h4{font-family:var(--mono);font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;color:var(--bloom);margin-bottom:1rem;font-weight:500}
+  .foot-col a,.foot-col p{display:block;font-size:.96rem;color:var(--cream-dim);padding:.28rem 0;font-family:var(--serif)}
+  .foot-col a:hover{color:var(--cream)}
+  .socials{display:flex;gap:.7rem;margin-top:.3rem}
+  .socials a{width:40px;height:40px;border:1px solid var(--line-dark);border-radius:50%;display:grid;place-content:center;transition:background .25s var(--ease),border-color .25s var(--ease),transform .25s var(--ease)}
+  .socials a:hover{background:var(--accent);border-color:var(--accent);transform:translateY(-2px)}
+  .socials svg{width:18px;height:18px;fill:var(--cream)}
+  .foot-bar{display:flex;flex-wrap:wrap;gap:.6rem 1.4rem;justify-content:space-between;align-items:center;
+    margin-top:clamp(2.5rem,5vw,3.5rem);padding-top:1.6rem;border-top:1px solid var(--line-dark);
+    font-family:var(--mono);font-size:.68rem;letter-spacing:.06em;color:var(--cream-dim)}
+  .foot-bar a:hover{color:var(--cream)}
+
+  /* ============ REVEAL (progressive — only hidden when JS confirms it will animate) ============ */
+  .js .reveal{opacity:0;transform:translateY(26px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
+  .js .reveal.in{opacity:1;transform:none}
+  .reveal.d1{transition-delay:.08s}.reveal.d2{transition-delay:.16s}.reveal.d3{transition-delay:.24s}
+
+  /* ============ RESPONSIVE ============ */
+  @media (max-width:920px){
+    .hero .wrap{grid-template-columns:1fr;gap:2.5rem}
+    .hero-figure{max-width:420px;margin-inline:auto;order:-1;width:100%}
+    .hero-figure img{aspect-ratio:16/13;border-radius:24px}
+    .hero-vine{display:none}
+    .hero{min-height:auto;padding-block:7rem 4rem}
+    .scrollcue{display:none}
+    .garden .grid,.suspended .grid,.visit .grid,.menu-grid{grid-template-columns:1fr}
+    .garden-figure{max-width:480px}
+    .foot-grid{grid-template-columns:1fr 1fr}
+  }
+  @media (max-width:768px){
+    nav.primary{
+      position:fixed;inset:0 0 0 auto;width:min(80vw,320px);background:var(--canopy);
+      flex-direction:column;justify-content:center;align-items:flex-start;gap:1.6rem;
+      padding:2rem 2.2rem;transform:translateX(100%);transition:transform .4s var(--ease);
+      box-shadow:-30px 0 60px -30px rgba(0,0,0,.6);z-index:120;
+    }
+    nav.primary.open{transform:none}
+    nav.primary a:not(.btn){font-size:1.05rem}
+    .nav-toggle{display:flex;flex-direction:column;justify-content:center;align-items:center;z-index:130}
+    nav.primary a:not(.btn){padding-block:.55rem}
+    .nav-toggle.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+    .nav-toggle.open span:nth-child(2){opacity:0}
+    .nav-toggle.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+    body.nav-open{overflow:hidden}
+    .nav-scrim{position:fixed;inset:0;background:rgba(0,0,0,.4);opacity:0;visibility:hidden;transition:opacity .3s;z-index:110}
+    .nav-scrim.show{opacity:1;visibility:visible}
+  }
+  @media (max-width:560px){
+    .foot-grid{grid-template-columns:1fr}
+    .pullquote{grid-template-columns:1fr}
+    .pullquote .mark{font-size:3rem}
+    .susp-card .top{flex-direction:column;align-items:flex-start}
+    .roast-strip{grid-template-columns:1fr}
+    .roast-img{aspect-ratio:16/9;min-height:0;border-left:0;border-top:1px solid var(--line-dark);order:-1}
+    .menu .head{align-items:flex-start}
+  }
+
+  /* ============ REDUCED MOTION ============ */
+  @media (prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto}
+    *,*::before,*::after{animation:none!important;transition:none!important}
+    .js .reveal{opacity:1;transform:none}
+    .js .draw .stem,.js .draw .leaf-p{stroke-dashoffset:0}
+  }
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="site-header" id="header">
+  <a class="brand" href="#main" aria-label="Da Green Coffee Bar, home">
+    <b><svg class="leaf" width="20" height="20" viewBox="0 0 32 32" aria-hidden="true"><path d="M16 5C8 8 6 16 8 25c9 1 15-4 16-13-5 1-8 3-10 8" fill="none" stroke="#CB5E3C" stroke-width="2.4" stroke-linecap="round"/></svg>Da Green</b>
+    <span>Coffee Bar · Kihei, Maui</span>
+  </a>
+
+  <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="primaryNav">
+    <span></span><span></span><span></span>
+  </button>
+
+  <nav class="primary" id="primaryNav" aria-label="Primary">
+    <a href="#garden">The Garden</a>
+    <a href="#menu">Menu</a>
+    <a href="#suspended">Suspended Coffees</a>
+    <a href="#visit">Visit</a>
+    <a class="btn btn--cream" href="#visit">Find us <span class="arrow" aria-hidden="true">↗</span></a>
+  </nav>
+</header>
+<div class="nav-scrim" id="navScrim" hidden></div>
+
+<main id="main">
+
+  <!-- ============ HERO ============ -->
+  <section class="hero" aria-labelledby="hero-h1">
+    <!-- hand-drawn vine arcing across the hero (motif) -->
+    <svg class="hero-vine draw" viewBox="0 0 600 200" fill="none" aria-hidden="true" style="--len:760">
+      <path class="stem" d="M-10 70 C 120 40, 200 120, 320 90 S 520 30, 610 80" stroke-width="2.5"/>
+      <path class="leaf-p" d="M150 78 C 138 58, 150 44, 172 48 C 168 66, 162 74, 150 78 Z" stroke-width="2"/>
+      <path class="leaf-p" d="M300 96 C 292 116, 304 132, 326 126 C 320 108, 314 100, 300 96 Z" stroke-width="2"/>
+      <path class="leaf-p" d="M460 58 C 450 40, 462 26, 484 32 C 478 48, 472 54, 460 58 Z" stroke-width="2"/>
+    </svg>
+
+    <div class="wrap">
+      <div class="hero-copy">
+        <p class="label label--cream">Hidden behind South Maui Gardens · Kihei</p>
+        <h1 id="hero-h1">Coffee<span class="em">in the shade.</span></h1>
+        <p class="lede">A garden coffee bar tucked into a Kihei plant nursery — Maui beans roasted in house, gourmet sourdough toast, and a bench under the monstera while the kettle sings.</p>
+        <div class="hero-cta">
+          <a class="btn btn--cream" href="#visit">Find the garden <span class="arrow" aria-hidden="true">↗</span></a>
+          <a class="btn btn--outline-cream" href="#menu">See the menu</a>
+        </div>
+      </div>
+
+      <figure class="hero-figure reveal">
+        <img src="images/exterior.jpg" width="1200" height="1500" fetchpriority="high" decoding="async"
+             alt="The lime-green Da Green Coffee Bar storefront with a glowing neon sign, string lights, and a rustic wood coffee counter framed by tropical plants." />
+        <figcaption class="cap">The little green bar off Auhana Rd</figcaption>
+      </figure>
+    </div>
+
+    <div class="scrollcue" aria-hidden="true"><i></i>Scroll</div>
+  </section>
+
+  <!-- ============ THE GARDEN ============ -->
+  <section class="garden" id="garden" aria-labelledby="garden-h2">
+    <div class="wrap">
+      <div class="grid">
+        <div class="reveal">
+          <div class="eyebrow-row"><span class="rule"></span><span class="label">The garden</span></div>
+          <h2 id="garden-h2">You won't find us from the road.</h2>
+          <p>Walk past the food trucks at South Maui Gardens and the heat drops away. Orchids climb the palms, a koi pond catches the light, and a monarch butterfly tree drifts overhead. That's where the bar is — open-air, in the shade.</p>
+          <p>We roast our beans in house every day and build our toast on sourdough from Blue Door Bakery next door. Order a macnut latte, find a nook, and stay a while. Most afternoons there's a local musician playing.</p>
+          <div class="tags">
+            <span class="tag">Roasted in house daily</span>
+            <span class="tag">Koi &amp; butterfly pond</span>
+            <span class="tag">Live local music</span>
+            <span class="tag">CBD wellness</span>
+          </div>
+        </div>
+
+        <figure class="garden-figure reveal d1">
+          <img src="images/garden.jpg" width="1600" height="1067" loading="lazy" decoding="async"
+               alt="The South Maui Gardens courtyard: colorful shade sails over gravel pathways, a carved stone Buddha, tropical plants, and people relaxing among the food trucks." />
+          <div class="badge">Est.<br>2022<small>Kihei</small></div>
+        </figure>
+      </div>
+
+      <!-- real guest review, attributed (no fake avatars) -->
+      <figure class="pullquote reveal">
+        <div class="mark" aria-hidden="true">“</div>
+        <div>
+          <blockquote>The atmosphere here is top notch — there's a pond, a monarch butterfly tree, and a plant nursery.</blockquote>
+          <cite>— Guest review · RestaurantGuru</cite>
+        </div>
+      </figure>
+    </div>
+  </section>
+
+  <!-- vine divider (motif) -->
+  <div class="wrap" aria-hidden="true">
+    <svg class="vine-divide draw" viewBox="0 0 760 60" fill="none" style="--len:900">
+      <path class="stem" d="M10 30 C 160 6, 230 54, 380 30 S 600 6, 750 30"/>
+      <path class="stem leaf-p" d="M250 34 C 240 50, 252 60, 270 56 C 264 44, 260 38, 250 34 Z" style="--len:120"/>
+      <path class="stem leaf-p" d="M500 26 C 492 10, 506 2, 522 8 C 516 20, 510 24, 500 26 Z" style="--len:120"/>
+    </svg>
+  </div>
+
+  <!-- ============ MENU ============ -->
+  <section class="menu" id="menu" aria-labelledby="menu-h2">
+    <div class="wrap">
+      <div class="head">
+        <div class="reveal">
+          <div class="eyebrow-row"><span class="rule"></span><span class="label">What we pour &amp; toast</span></div>
+          <h2 id="menu-h2">House-roasted, hand-built, in the green.</h2>
+        </div>
+        <div class="cats reveal d1" aria-hidden="true">
+          <span class="tag tag--sage">Coffee</span>
+          <span class="tag tag--sage">Toast</span>
+          <span class="tag tag--sage">Smoothies</span>
+          <span class="tag tag--sage">CBD + Wellness</span>
+        </div>
+      </div>
+
+      <p class="est-flag" role="note">≈ Prices are rough estimates — confirming the owner's actual list before launch</p>
+
+      <div class="menu-grid">
+        <!-- COFFEE — estimated prices, Maui/Kihei 2026 ballpark; replace with confirmed list before launch -->
+        <div class="menu-card reveal">
+          <span class="label">Coffee — roasted in house daily</span>
+          <div class="m-item"><span class="name">Café Latte</span><span class="price">$6 / 7.50</span><span class="desc">12 oz / 16 oz</span></div>
+          <div class="m-item"><span class="name">Cappuccino</span><span class="price">$5.50</span></div>
+          <div class="m-item"><span class="name">Espresso</span><span class="price">$3.50 / 4.50</span><span class="desc">single / double</span></div>
+          <div class="m-item"><span class="name">Americano</span><span class="price">$5</span></div>
+          <div class="m-item"><span class="name">House Brew</span><span class="price">$4 / 5</span><span class="desc">12 oz / 16 oz</span></div>
+          <div class="m-item"><span class="name">Iced Coffee</span><span class="price">$5.50</span><span class="desc">16 oz</span></div>
+          <div class="m-item"><span class="name">Macnut Latte</span><span class="price">$7</span><span class="desc">A local favorite — espresso, steamed milk, Maui macadamia.</span></div>
+          <div class="m-item"><span class="name">Berries Smoothie</span><span class="price">$9</span></div>
+          <p class="menu-note">◦ Oat &amp; alt-milks available · ask about CBD add-ins</p>
+        </div>
+
+        <!-- TOAST -->
+        <div class="menu-card reveal d1">
+          <span class="label">Toast — on Blue Door sourdough</span>
+          <div class="m-item">
+            <span class="name">Da Green</span>
+            <span class="price">$14</span>
+            <span class="desc">Hummus, cucumber, onion, olives, tomato &amp; feta crumbles with a squeeze of lemon.</span>
+          </div>
+          <div class="m-item">
+            <span class="name">Everything but the Smoothie</span>
+            <span class="price">$13</span>
+            <span class="desc">Almond butter, strawberries, banana &amp; hemp seeds.</span>
+          </div>
+          <div class="m-item">
+            <span class="name">Da New Yorker</span>
+            <span class="price">$16</span>
+            <span class="desc">Cream cheese, lox, red onion &amp; dill.</span>
+          </div>
+          <div class="m-item">
+            <span class="name">Butter &amp; Jam</span>
+            <span class="price">$9</span>
+            <span class="desc">House spreads — mac-nut butter, guava butter, almond butter.</span>
+          </div>
+          <p class="menu-note">◦ Daily pastries &amp; local desserts — Lilikoʻi cheesecake, guava danish</p>
+        </div>
+      </div>
+      <!-- PRICES ARE ROUGH ESTIMATES (Maui/Kihei 2026 ballpark, owner-unconfirmed).
+           Replace every .price value with the owner's confirmed list before launch. -->
+      <!-- TODO(real photo): a clean 4:5 close-up of the cinnamon-dusted latte and the Da Green toast
+           would lift this section — request high-res shots from the owner / @dagreencoffeemaui. -->
+
+      <div class="roast-strip reveal">
+        <div class="roast-copy">
+          <p>We roast in house, every day.</p>
+          <span class="label">Maui beans · small batch · ask what's fresh</span>
+        </div>
+        <img class="roast-img" src="images/neon-sign.jpg" width="1080" height="600" loading="lazy" decoding="async"
+             alt="The blue-and-green neon &ldquo;Da Green Coffee Bar&rdquo; sign glowing on the cafe's lime-yellow wall." />
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ EXPERIENCE BAND ============ -->
+  <section class="band" id="experience" style="--band-img:url('images/garden-square.jpg')" aria-labelledby="band-h2">
+    <div class="wrap reveal">
+      <div class="eyebrow-row"><span class="rule" style="background:var(--line-dark)"></span><span class="label label--cream">Stay a while</span></div>
+      <h2 id="band-h2">Shade sails, slack key, and nowhere to be.</h2>
+      <p>The back lounge has deep shade, quiet nooks, and butterflies. Bring a laptop, bring a friend, or bring nothing at all. Afternoons drift by to whoever's playing.</p>
+      <div class="tags">
+        <span class="tag">Open-air seating</span>
+        <span class="tag">Free wifi</span>
+        <span class="tag">Food-truck neighbors</span>
+        <span class="tag">Dog-friendly</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SUSPENDED COFFEES ============ -->
+  <section class="suspended" id="suspended" aria-labelledby="susp-h2">
+    <div class="wrap">
+      <div class="grid">
+        <div class="reveal">
+          <div class="eyebrow-row"><span class="rule"></span><span class="label">Suspended coffees</span></div>
+          <h2 id="susp-h2">Buy one forward. We keep it on the board.</h2>
+          <p class="lead">Pay for an extra coffee and we'll chalk it up. When someone who needs one comes by, it's already paid for — no questions. It's a small Kihei tradition we're proud to keep.</p>
+          <p>Ask the barista to add a suspended coffee to any order.</p>
+        </div>
+
+        <div class="susp-card reveal d1" aria-label="Example of the suspended coffees board">
+          <div class="top"><b>On the board today</b><span class="label">Pay it forward</span></div>
+          <div class="susp-row"><span class="chip">Paid</span><span>House brew, waiting for whoever needs it</span></div>
+          <div class="susp-row"><span class="chip">Paid</span><span>Iced latte — “from a regular”</span></div>
+          <div class="susp-row"><span class="chip">Paid</span><span>Macnut latte — “on us, friend”</span></div>
+          <!-- Illustrative example board, not live data. -->
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ VISIT ============ -->
+  <section class="visit" id="visit" aria-labelledby="visit-h2">
+    <div class="wrap">
+      <div class="grid">
+        <div class="info reveal">
+          <div class="eyebrow-row"><span class="rule"></span><span class="label">Visit</span></div>
+          <h2 id="visit-h2">Find the green bar.</h2>
+          <dl>
+            <dt>Where</dt>
+            <dd>35 Auhana Rd, Kihei, HI 96753
+              <span class="note">Behind South Maui Gardens — park in the garden lot and walk through</span></dd>
+            <dt>Hours</dt>
+            <dd>Mon–Sat 6:30a – 6:00p · Sun 7:00a – 6:00p
+              <span class="note">⚠ Listings vary — confirm current hours &amp; happy hour before publishing</span></dd>
+            <dt>Phone</dt>
+            <dd><a href="tel:+18088560025">(808) 856-0025</a>
+              <span class="note">⚠ Confirm this is the bar's direct line</span></dd>
+            <dt>Email</dt>
+            <dd><a href="mailto:contact.dagreencoffee@gmail.com">contact.dagreencoffee@gmail.com</a></dd>
+            <dt>Social</dt>
+            <dd><a href="https://www.instagram.com/dagreencoffeemaui/" target="_blank" rel="noopener">@dagreencoffeemaui</a></dd>
+          </dl>
+          <a class="btn btn--primary" href="https://www.google.com/maps/dir/?api=1&destination=Da+Green+Coffee+Bar+35+Auhana+Rd+Kihei+HI+96753" target="_blank" rel="noopener">Get directions <span class="arrow" aria-hidden="true">↗</span></a>
+        </div>
+
+        <div class="map reveal d1">
+          <iframe
+            title="Map to Da Green Coffee Bar, 35 Auhana Rd, Kihei"
+            src="https://www.google.com/maps?q=35+Auhana+Rd,+Kihei,+HI+96753&output=embed"
+            loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer aria-labelledby="foot-h">
+  <div class="wrap">
+    <h2 id="foot-h" class="visually-hidden" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">Footer</h2>
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <b>Da Green Coffee Bar</b>
+        <p>Coffee in the shade — Maui-grown, house-roasted, hidden behind South Maui Gardens in Kihei.</p>
+        <div class="socials">
+          <a href="https://www.instagram.com/dagreencoffeemaui/" target="_blank" rel="noopener" aria-label="Da Green on Instagram">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.2c3.2 0 3.6 0 4.9.07 1.2.06 1.8.25 2.2.42.6.22 1 .48 1.4.9.42.4.68.8.9 1.4.17.4.36 1 .42 2.2.07 1.3.07 1.7.07 4.9s0 3.6-.07 4.9c-.06 1.2-.25 1.8-.42 2.2-.22.6-.48 1-.9 1.4-.4.42-.8.68-1.4.9-.4.17-1 .36-2.2.42-1.3.07-1.7.07-4.9.07s-3.6 0-4.9-.07c-1.2-.06-1.8-.25-2.2-.42-.6-.22-1-.48-1.4-.9-.42-.4-.68-.8-.9-1.4-.17-.4-.36-1-.42-2.2C2.2 15.6 2.2 15.2 2.2 12s0-3.6.07-4.9c.06-1.2.25-1.8.42-2.2.22-.6.48-1 .9-1.4.4-.42.8-.68 1.4-.9.4-.17 1-.36 2.2-.42C8.4 2.2 8.8 2.2 12 2.2Zm0 1.8c-3.1 0-3.5 0-4.7.06-1.1.05-1.7.24-2.1.4-.5.2-.9.43-1.3.83-.4.4-.64.8-.83 1.3-.16.4-.35 1-.4 2.1C2.6 9.7 2.6 10 2.6 12s0 2.3.06 3.5c.05 1.1.24 1.7.4 2.1.2.5.43.9.83 1.3.4.4.8.64 1.3.83.4.16 1 .35 2.1.4 1.2.06 1.6.06 4.7.06s3.5 0 4.7-.06c1.1-.05 1.7-.24 2.1-.4.5-.2.9-.43 1.3-.83.4-.4.64-.8.83-1.3.16-.4.35-1 .4-2.1.06-1.2.06-1.6.06-3.5s0-2.3-.06-3.5c-.05-1.1-.24-1.7-.4-2.1-.2-.5-.43-.9-.83-1.3-.4-.4-.8-.64-1.3-.83-.4-.16-1-.35-2.1-.4C15.5 4 15.1 4 12 4Zm0 3.1a4.9 4.9 0 1 1 0 9.8 4.9 4.9 0 0 1 0-9.8Zm0 1.8a3.1 3.1 0 1 0 0 6.2 3.1 3.1 0 0 0 0-6.2Zm5.1-.2a1.15 1.15 0 1 1-2.3 0 1.15 1.15 0 0 1 2.3 0Z"/></svg>
+          </a>
+          <a href="mailto:contact.dagreencoffee@gmail.com" aria-label="Email Da Green Coffee Bar">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 5h18a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1Zm9 7.4 8-5.2H4l8 5.2ZM4 8.2V17h16V8.2l-8 5.2-8-5.2Z"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <nav class="foot-col" aria-label="Footer">
+        <h4>Explore</h4>
+        <a href="#garden">The Garden</a>
+        <a href="#menu">Menu</a>
+        <a href="#suspended">Suspended Coffees</a>
+        <a href="#visit">Visit</a>
+      </nav>
+
+      <div class="foot-col">
+        <h4>Hours</h4>
+        <p>Mon–Sat · 6:30a–6:00p</p>
+        <p>Sunday · 7:00a–6:00p</p>
+        <p style="color:var(--bloom);font-family:var(--mono);font-size:.72rem;letter-spacing:.04em">Confirm before publishing</p>
+      </div>
+
+      <div class="foot-col">
+        <h4>Find us</h4>
+        <a href="https://www.google.com/maps/dir/?api=1&destination=Da+Green+Coffee+Bar+35+Auhana+Rd+Kihei+HI+96753" target="_blank" rel="noopener">35 Auhana Rd, Kihei</a>
+        <a href="tel:+18088560025">(808) 856-0025</a>
+        <a href="mailto:contact.dagreencoffee@gmail.com">contact.dagreencoffee@gmail.com</a>
+      </div>
+    </div>
+
+    <div class="foot-bar">
+      <span>© <span id="yr"></span> Da Green Coffee Bar · Kihei, Maui</span>
+      <span>Site by <a href="https://frontlinewebdesign.tech" target="_blank" rel="noopener">Frontline Web Designs</a></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  "use strict";
+  var rm = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* ---- header scroll state ---- */
+  var header = document.getElementById('header');
+  var onScroll = function(){ header.classList.toggle('scrolled', window.scrollY > 40); };
+  onScroll(); window.addEventListener('scroll', onScroll, {passive:true});
+
+  /* ---- mobile nav ---- */
+  var toggle = document.getElementById('navToggle');
+  var nav = document.getElementById('primaryNav');
+  var scrim = document.getElementById('navScrim');
+  function setNav(open){
+    nav.classList.toggle('open', open);
+    toggle.classList.toggle('open', open);
+    scrim.classList.toggle('show', open);
+    scrim.hidden = !open;
+    document.body.classList.toggle('nav-open', open);
+    toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    toggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+  }
+  toggle.addEventListener('click', function(){ setNav(!nav.classList.contains('open')); });
+  scrim.addEventListener('click', function(){ setNav(false); });
+  nav.addEventListener('click', function(e){ if(e.target.closest('a')) setNav(false); });
+  document.addEventListener('keydown', function(e){ if(e.key==='Escape') setNav(false); });
+
+  /* ---- reveal + vine draw on scroll (with failsafe so content is never stuck hidden) ---- */
+  var targets = document.querySelectorAll('.reveal, .draw');
+  function revealAll(){ targets.forEach(function(el){ el.classList.add('in'); }); }
+  if(rm || !('IntersectionObserver' in window)){
+    revealAll();
+  } else {
+    var ioFired = false;
+    var io = new IntersectionObserver(function(entries){
+      ioFired = true;
+      entries.forEach(function(en){
+        if(en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target); }
+      });
+    }, {threshold:0.18, rootMargin:'0px 0px -8% 0px'});
+    targets.forEach(function(el){ io.observe(el); });
+    // failsafe: if the observer never delivers a callback (e.g. no compositing), reveal everything
+    setTimeout(function(){ if(!ioFired){ revealAll(); } }, 3000);
+  }
+
+  /* ---- year ---- */
+  document.getElementById('yr').textContent = new Date().getFullYear();
+})();
+</script>
+</body>
+</html>

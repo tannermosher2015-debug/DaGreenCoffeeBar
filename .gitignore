@@ -1,0 +1,7 @@
+# Archived source photos (originals — scraped, not for deploy)
+images/source/
+
+# OS / editor cruft
+Thumbs.db
+.DS_Store
+*.tmp
