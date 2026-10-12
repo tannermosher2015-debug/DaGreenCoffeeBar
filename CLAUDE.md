@@ -8,7 +8,7 @@ it the first time you work in this repo.
 Single-file static HTML/CSS/JS. No framework.
 
 ## Deploy target
-**Hostinger, `dagreen.mauifoodtruckwebsites.com`. A Netlify project `dagreencoffeebarsample` also exists.**
+**Hostinger, `dagreen.mauifoodtruckwebsites.com`. The Netlify project `dagreencoffeebarsample` was deleted 2026-10-11. Deploy by zip: Hostinger MCP `hosting_deploy-static-website`, then `hosting_cache_clear-website`.**
 
 ## Does a push publish?
 **NO.** This repo has no deploy webhook and no deploying GitHub Action, so nothing is
